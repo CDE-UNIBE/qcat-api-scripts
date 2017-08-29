@@ -12,7 +12,7 @@ def get_config_class(config_dict):
 
 
 def get_full_url(url: str) -> str:
-    return f'https://qcat.wocat.net{url}'
+    return 'https://qcat.wocat.net{url}'.format(url=url)
 
 
 def test_no_config_file():

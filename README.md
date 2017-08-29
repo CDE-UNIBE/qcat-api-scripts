@@ -12,7 +12,7 @@ More information on the API can be found in the [QCAT Documentation].
 
 **It is recommended to install the scripts within a [virtual environment].**
 
-*The scripts require Python 3.6 to run.*
+*The scripts require Python 3 (>= 3.5) to run.*
 
 1. (recommended) Set up and activate a [virtual environment] with Python 3.6.
 1. Clone this repository.

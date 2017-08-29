@@ -64,14 +64,16 @@ class QcatApiMixin:
                 spec.loader.exec_module(mod)
             except FileNotFoundError:
                 self.error(
-                    f'Config file "{self.args.config_file}" was not found.')
+                    'Config file "{config_file}" was not found.'.format(
+                        config_file=self.args.config_file))
 
             try:
                 self.config_dict = mod.config
             except AttributeError:
                 self.error(
-                    f'Config file "{self.args.config_file}" is not valid. It '
-                    f'needs to contains a dict "config"')
+                    'Config file "{config_file}" is not valid. It needs to '
+                    'contains a dict "config"'.format(
+                        config_file=self.args.config_file))
 
             # If token was provided as an argument, set it
             if self.args.token:
@@ -80,9 +82,10 @@ class QcatApiMixin:
             for required in ['api_token', 'qcat_attributes']:
                 if required not in self.config_dict \
                         or not self.config_dict[required]:
-                    self.error(f'"{required}" must be specified in '
-                               f'the configuration. See the Readme file for '
-                               f'more information.')
+                    self.error(
+                        '"{required}" must be specified in the configuration. '
+                        'See the Readme file for more information.'.format(
+                            required=required))
 
             config_class = type('ConfigClass', (BaseConfig,), self.config_dict)
 
@@ -117,7 +120,7 @@ class QcatApiMixin:
         if not results:
             self.log('Querying questionnaires ...')
 
-        self.log(f'... Querying {url}')
+        self.log('... Querying {url}'.format(url=url))
 
         query = self._query(url)
         if query is None:
@@ -129,7 +132,8 @@ class QcatApiMixin:
         if self.config.query_limit and len(results) > self.config.query_limit:
             subset = results[:self.config.query_limit]
             self.log('Query limit set, returning subset of results.')
-            print(f'Fetched {len(subset)} questionnaires.')
+            print('Fetched {len_subset} questionnaires.'.format(
+                len_subset=len(subset)))
             return subset
 
         # If there are more questionnaires, query the next page
@@ -137,7 +141,8 @@ class QcatApiMixin:
         if next_url:
             return self.query_questionnaires(results, next_url)
 
-        print(f'Fetched {len(results)} questionnaires.')
+        print('Fetched {len_results} questionnaires.'.format(
+            len_results=len(results)))
 
         return results
 
@@ -149,7 +154,7 @@ class QcatApiMixin:
     @staticmethod
     def error(msg: str) -> None:
         """Show the error message and exit."""
-        print(f'ERROR: {msg}')
+        print('ERROR: {msg}'.format(msg=msg))
         sys.exit()
 
     def check_local_questionnaires(self, questionnaires: list) -> None:
@@ -199,23 +204,29 @@ class QcatApiMixin:
             len(local_questionnaires) - len(untouched_questionnaires) -
             len(updated_questionnaires), 0)
 
-        print(f'{len(untouched_questionnaires)} entries still up to date, '
-              f'{len(updated_questionnaires)} will be updated, '
-              f'{len(new_questionnaires)} will be newly added, '
-              f'{removed_questionnaire_count} entries will be removed.')
+        print('{len_untouched_questionnaires} entries still up to date, '
+              '{len_updated_questionnaires} will be updated, '
+              '{len_new_questionnaires} will be newly added, '
+              '{removed_questionnaire_count} entries will be removed.'.format(
+                len_untouched_questionnaires=len(untouched_questionnaires),
+                len_updated_questionnaires=len(updated_questionnaires),
+                len_new_questionnaires=len(new_questionnaires),
+                removed_questionnaire_count=removed_questionnaire_count))
 
         limit_hit = False
 
         # Get details of updated questionnaires
         write_questionnaires = untouched_questionnaires
         if updated_questionnaires:
-            self.log(f'... Fetching attributes of {len(updated_questionnaires)}'
-                     f' updated entries.')
+            self.log('... Fetching attributes of {len_updated_questionnaires} '
+                     'updated entries.'.format(
+                len_updated_questionnaires=len(updated_questionnaires)))
             updated_attrs, limit_hit = self.get_attributes(
                 updated_questionnaires)
             if limit_hit is True:
-                self.log(f'... Only updated {len(updated_attrs)} entries '
-                         f'because of API limit.')
+                self.log('... Only updated {len_updated_attrs} entries because '
+                         'of API limit.'.format(
+                    len_updated_attrs=len(updated_attrs)))
             write_questionnaires.extend(updated_attrs)
 
         # Get details of new questionnaires
@@ -223,12 +234,13 @@ class QcatApiMixin:
             if limit_hit is True:
                 self.log('... Not adding new entries because of API limit.')
             else:
-                self.log(f'... Fetching attributes of {len(new_questionnaires)}'
-                         f' new entries.')
+                self.log('... Fetching attributes of {len_new_questionnaires} '
+                         'new entries.'.format(
+                    len_new_questionnaires=len(new_questionnaires)))
                 new_attrs, limit_hit = self.get_attributes(new_questionnaires)
                 if limit_hit is True:
-                    self.log(f'... Only added {len(new_attrs)} entries because '
-                             f'of API limit.')
+                    self.log('... Only added {len_new_attrs} entries because of'
+                             ' API limit.'.format(len_new_attrs=len(new_attrs)))
                 write_questionnaires.extend(new_attrs)
 
         return write_questionnaires
@@ -253,8 +265,8 @@ class QcatApiMixin:
         over the API. If None is returned, the API limit was hit.
         """
         # Query details
-        url = f'{self.config.qcat_base_url}/en/api/v2/questionnaires/' \
-              f'{list_entry["code"]}/'
+        url = '{qcat_base_url}/en/api/v2/questionnaires/{code}/'.format(
+            qcat_base_url=self.config.qcat_base_url, code=list_entry['code'])
 
         query = self._query(url)
         if query is None:
@@ -365,7 +377,8 @@ class QcatApiMixin:
 
         else:
             raise Exception(
-                f'data_part should be either list or dict: {data_part}')
+                'data_part should be either list or dict: {data_part}'.format(
+                    data_part=data_part))
 
     def get_output_file_path(self):
         return os.path.join('output', self.config.output_file)
@@ -378,7 +391,9 @@ class QcatApiMixin:
         return {
             'code': list_entry.get('code'),
             'updated': list_entry.get('updated'),
-            'url': f'{self.config.qcat_base_url}{list_entry.get("url")}',
+            'url': '{qcat_base_url}{list_entry_url}'.format(
+                qcat_base_url=self.config.qcat_base_url,
+                list_entry_url=list_entry.get("url")),
         }
 
     @staticmethod
@@ -405,14 +420,16 @@ class QcatApiMixin:
             return None
         if not r.ok:
             self.error(
-                f'Error fetching data. Query to API returned status '
-                f'{r.status_code} ({r.reason})')
+                'Error fetching data. Query to API returned status '
+                '{status_code} ({reason})'.format(
+                    status_code=r.status_code, reason=r.reason))
         return r.json()
 
     def _get_request_url(self, endpoint: str) -> str:
         """Put together API URL"""
-        return f'{self.config.qcat_base_url}/en/api/v2/{endpoint}' \
-               f'{self.config.api_filter_params}'
+        return '{qcat_base_url}/en/api/v2/{endpoint}{filter_params}'.format(
+            qcat_base_url=self.config.qcat_base_url, endpoint=endpoint,
+            filter_params=self.config.api_filter_params)
 
     def _get_request_params(self, url: str) -> dict:
         """Return request params for API request"""
@@ -421,6 +438,7 @@ class QcatApiMixin:
             'headers': {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': f'Token {self.config.api_token}'
+                'Authorization': 'Token {api_token}'.format(
+                    api_token=self.config.api_token)
             }
         }

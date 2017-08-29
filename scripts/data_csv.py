@@ -22,8 +22,10 @@ class QcatDataCsv(QcatApiMixin):
                 reader = csv.DictReader(csv_file, **self._get_csv_options())
                 for row in reader:
                     rows.append(row)
-            self.log(f'Found existing attribute file "{output_file}" with '
-                     f'{len(rows)} entries.')
+            self.log(
+                'Found existing attribute file "{output_file}" with {len_rows}'
+                ' entries.'.format(
+                    output_file=output_file, len_rows=len(rows)))
         except FileNotFoundError:
             self.log('No existing attribute file found.')
         return rows
@@ -41,7 +43,8 @@ class QcatDataCsv(QcatApiMixin):
             writer.writeheader()
             for row in data:
                 writer.writerow(row)
-        print(f'Output file "{output_file}" written.')
+        print('Output file "{output_file}" written.'.format(
+            output_file=output_file))
 
     @staticmethod
     def _get_csv_options() -> dict:
@@ -59,8 +62,12 @@ class QcatDataCsv(QcatApiMixin):
             qcat_attributes_length = len(self._get_basic_attributes({})) + \
                               len(self.config.qcat_attributes)
             self.error(
-                f'Number of attributes ({len(local_questionnaire)}) in the '
-                f'local file "{self.get_output_file_path()}" does not match '
-                f'number of qcat_attributes ({qcat_attributes_length}) set in '
-                f'the configuration file. Please adjust configuration or '
-                f'delete previous output file.')
+                'Number of attributes ({len_local_questionnaires}) in the local'
+                ' file "{output_file_path}" does not match number of '
+                'qcat_attributes ({qcat_attributes_length}) set in the '
+                'configuration file. Please adjust configuration or delete '
+                'previous output file.'.format(
+                    len_local_questionnaires=len(local_questionnaire),
+                    output_file_path=self.get_output_file_path(),
+                    qcat_attributes_length=qcat_attributes_length
+                ))

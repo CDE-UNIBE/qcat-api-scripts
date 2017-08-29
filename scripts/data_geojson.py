@@ -21,8 +21,9 @@ class QcatDataGeojson(QcatApiMixin):
         try:
             json_data = json.loads(file_data)
         except json.decoder.JSONDecodeError:
-            print(f'Existing attribute file "{output_file}" is not a valid '
-                  f'geojson file. It is ignored.')
+            print('Existing attribute file "{output_file}" is not a valid '
+                  'geojson file. It is ignored.'.format(
+                output_file=output_file))
             return []
 
         features_by_code = {}
@@ -43,8 +44,9 @@ class QcatDataGeojson(QcatApiMixin):
 
         features = list(features_by_code.values())
 
-        self.log(f'Found existing attribute file "{output_file}" with '
-                 f'{len(features)} entries.')
+        self.log('Found existing attribute file "{output_file}" with '
+                 '{len_features} entries.'.format(
+            output_file=output_file, len_features=len(features)))
 
         return features
 
@@ -66,12 +68,14 @@ class QcatDataGeojson(QcatApiMixin):
             'features': features,
         }
 
-        self.log(f'Skipped {no_geometry_count} questionnaires because they do '
-                 f'not have a geometry, writing {len(features)} features (one '
-                 f'questionnaire can have multiple features)')
+        self.log('Skipped {no_geometry_count} questionnaires because they do '
+                 'not have a geometry, writing {len_features} features (one '
+                 'questionnaire can have multiple features)'.format(
+            no_geometry_count=no_geometry_count, len_features=len(features)))
 
         output_file = self.get_output_file_path()
         with open(output_file, 'w') as geojson_file:
             json.dump(feature_collection, geojson_file)
 
-        print(f'Output file "{output_file}" written.')
+        print('Output file "{output_file}" written.'.format(
+            output_file=output_file))
