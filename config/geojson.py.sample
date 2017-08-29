@@ -1,0 +1,69 @@
+"""
+Sample configuration for extracting a Geojson with name and country of all
+SLM Technologies in QCAT.
+
+Copy and rename this file to geojson.py and don't forget to set or provide your
+API token.
+
+Run this configuration as follows:
+    $(env)python qcat_data_geojson.py config/geojson.py
+"""
+
+config = {
+    'api_token': '',  # Your API token here
+    'api_filter_params': '?type=technologies',
+    'output_file': 'qcat_geojson.json',
+    'qcat_attributes': [
+        # Geometry
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__2',
+                'children',
+                'tech__2__5',
+                'children',
+                'qg_location_map',
+                'children',
+                'location_map',
+                'value',
+                'value',
+            ],
+            'name': 'geometry',
+        },
+        # Name
+        {
+            'path': [
+                'section_general_information',
+                'children',
+                'tech__1',
+                'children',
+                'tech__1__1',
+                'children',
+                'qg_name',
+                'children',
+                'name',
+                'value',
+                'value',
+            ],
+            'name': 'name',
+        },
+        # Country
+        {
+            'path': [
+                'section_general_information',
+                'children',
+                'tech__1',
+                'children',
+                'tech__1__1',
+                'children',
+                'qg_location',
+                'children',
+                'country',
+                'value',
+                'value',
+            ],
+            'name': 'country',
+        }
+    ]
+}

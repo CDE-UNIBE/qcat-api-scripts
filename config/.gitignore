@@ -1,0 +1,4 @@
+# Ignore everything except the init file and sample files.
+*
+!__init__.py
+!*.sample

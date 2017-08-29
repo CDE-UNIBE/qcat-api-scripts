@@ -1,0 +1,52 @@
+"""
+Sample configuration for extracting a CSV with name and country of all
+SLM Technologies in QCAT.
+
+Copy and rename this file to csv.py and don't forget to set or provide your
+API token.
+
+Run this configuration as follows:
+    $(env)python qcat_data_csv.py config/csv.py
+"""
+
+config = {
+    'api_token': '',  # Your API token here
+    'api_filter_params': '?type=technologies',
+    'output_file': 'qcat_countries.csv',
+    'qcat_attributes': [
+        # Name
+        {
+            'path': [
+                'section_general_information',
+                'children',
+                'tech__1',
+                'children',
+                'tech__1__1',
+                'children',
+                'qg_name',
+                'children',
+                'name',
+                'value',
+                'value',
+            ],
+            'name': 'name',
+        },
+        # Country
+        {
+            'path': [
+                'section_general_information',
+                'children',
+                'tech__1',
+                'children',
+                'tech__1__1',
+                'children',
+                'qg_location',
+                'children',
+                'country',
+                'value',
+                'value',
+            ],
+            'name': 'country'
+        }
+    ],
+}
