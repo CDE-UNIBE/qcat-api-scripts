@@ -18,7 +18,7 @@ More information on the API can be found in the [QCAT Documentation].
 1. Clone this repository.
 1. Install the requirements:
         
-        (env)$ pip install requirements/requirements.txt
+        (env)$ pip install -r requirements/requirements.txt
 
 
 ## API Token
