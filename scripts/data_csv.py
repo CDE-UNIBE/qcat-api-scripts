@@ -18,7 +18,7 @@ class QcatDataCsv(QcatApiMixin):
         rows = []
         output_file = self.get_output_file_path()
         try:
-            with open(output_file, newline='') as csv_file:
+            with open(output_file, newline='',encoding='utf-8') as csv_file:
                 reader = csv.DictReader(csv_file, **self._get_csv_options())
                 for row in reader:
                     rows.append(row)
@@ -37,7 +37,7 @@ class QcatDataCsv(QcatApiMixin):
         except IndexError:
             fieldnames = []
         output_file = self.get_output_file_path()
-        with open(output_file, 'w', newline='') as csv_file:
+        with open(output_file, 'w', newline='',encoding='utf-8') as csv_file:
             writer = csv.DictWriter(
                 csv_file, fieldnames=fieldnames, **self._get_csv_options())
             writer.writeheader()
