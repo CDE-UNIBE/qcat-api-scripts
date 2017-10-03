@@ -31,6 +31,8 @@ When running the scripts, you can either pass the token as parameter (`-t <token
 
 Or you can specify the token in the configuration file (see below).
 
+(Replace `<token>` and `<config_file.py>` with your content, remove the brackets)
+
 
 ## Configuration
 
@@ -71,6 +73,8 @@ Each `config` dictionary must contain the following keys:
         ]
     }
     ```
+    
+    To see available attributes and the `path` for them, query the details of a questionnaire using the API (see [QCAT Documentation on API requests]) and inspect the response.
  
 #### Optional configuration
      
@@ -118,6 +122,8 @@ The basic usage of the scripts are as follows:
 
 This will create the resulting files in the `output` directory.
 
+(Replace `<config_file.py>` with your content, remove the brackets)
+
 
 #### Parameters
 
@@ -141,3 +147,4 @@ This will create the resulting files in the `output` directory.
 [how to obtain an authorization token]: http://qcat.readthedocs.io/en/latest/api/v2.html#authorization
 [QCAT Search View]: https://qcat.wocat.net/en/wocat/list/
 [QCAT Filter View]: https://qcat.wocat.net/en/wocat/filter/?type=technologies
+[QCAT Documentation on API requests]: https://qcat.readthedocs.io/en/latest/api/v2.html#details-of-questionnaire
