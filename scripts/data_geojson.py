@@ -12,7 +12,7 @@ class QcatDataGeojson(QcatApiMixin):
         """Read a local Geojson file"""
         output_file = self.get_output_file_path()
         try:
-            with open(output_file) as geojson_file:
+            with open(output_file,encoding='utf-8') as geojson_file:
                 file_data = geojson_file.read()
         except FileNotFoundError:
             self.log('No existing attribute file found.')
@@ -74,7 +74,7 @@ class QcatDataGeojson(QcatApiMixin):
             no_geometry_count=no_geometry_count, len_features=len(features)))
 
         output_file = self.get_output_file_path()
-        with open(output_file, 'w') as geojson_file:
+        with open(output_file, 'w',encoding='utf-8') as geojson_file:
             json.dump(feature_collection, geojson_file)
 
         print('Output file "{output_file}" written.'.format(
