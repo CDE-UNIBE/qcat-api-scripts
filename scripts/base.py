@@ -94,6 +94,15 @@ class QcatApiMixin:
             # Configuration file was provided, use this
             self.config = config_object
 
+        # Use a request session for "keep-alive" of the connection
+        self.session = requests.Session()
+        self.session.headers.update({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Token {api_token}'.format(
+                api_token=self.config.api_token)
+            })
+
     def handle(self):
         """The main function, extracts the data."""
 
@@ -411,7 +420,7 @@ class QcatApiMixin:
 
     def _query(self, url: str):
         """Query the API"""
-        r = requests.get(**self._get_request_params(url))
+        r = self.session.get(url)
         if r.status_code == 429:
             # Too many requests, API limit was hit
             print('You seem to have hit the limit of daily API calls. Please '
@@ -431,14 +440,3 @@ class QcatApiMixin:
             qcat_base_url=self.config.qcat_base_url, endpoint=endpoint,
             filter_params=self.config.api_filter_params)
 
-    def _get_request_params(self, url: str) -> dict:
-        """Return request params for API request"""
-        return {
-            'url': url,
-            'headers': {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Token {api_token}'.format(
-                    api_token=self.config.api_token)
-            }
-        }
