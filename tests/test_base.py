@@ -1,5 +1,6 @@
 from unittest.mock import Mock
 
+import datetime
 import pytest
 
 from scripts.base import BaseConfig
@@ -32,6 +33,30 @@ def test_accepts_config_object():
     config_object = Mock()
     eqd = QcatDataCsv(arguments=args, config_object=config_object)
     assert eqd.config == config_object
+
+
+def test_parse_time_invalid_string():
+    args = Mock()
+    config_object = Mock()
+    eqd = QcatDataCsv(arguments=args, config_object=config_object)
+    parsed = eqd._parse_time('foo')
+    assert parsed is None
+
+
+def test_parse_time_zulu():
+    args = Mock()
+    config_object = Mock()
+    eqd = QcatDataCsv(arguments=args, config_object=config_object)
+    parsed = eqd._parse_time('2017-06-22T09:22:18.923779Z')
+    assert isinstance(parsed, datetime.datetime)
+
+
+def test_parse_time_timezone():
+    args = Mock()
+    config_object = Mock()
+    eqd = QcatDataCsv(arguments=args, config_object=config_object)
+    parsed = eqd._parse_time('2017-01-04T16:43:43.545844+01:00')
+    assert isinstance(parsed, datetime.datetime)
 
 
 def test_extract_path_simple():

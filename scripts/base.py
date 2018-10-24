@@ -408,9 +408,15 @@ class QcatApiMixin:
     @staticmethod
     def _parse_time(time_string: str) -> datetime:
         """Parse a time from string."""
+
+        # Strings with timezone (+01:00) in v2 are not easily parsed. But time
+        # zones are not important here, so we just omit them.
+        time_string = time_string.rsplit('+')[0]
+
         time_formats = [
             '%Y-%m-%dT%H:%M:%S.%fZ',  # Default
             '%Y-%m-%dT%H:%M:%SZ',  # Imported UNCCD data
+            '%Y-%m-%dT%H:%M:%S.%f',  # Stripped timezone format (v2)
         ]
         for t_format in time_formats:
             try:
