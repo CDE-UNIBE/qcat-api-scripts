@@ -8,11 +8,10 @@ Copy and rename this file to csv.py and don't forget to set or provide your
 API token.
 
 Run this configuration as follows:
-    $(env)python config/qcat_data_csv.py config/tech.py -v
+    $(env)python config/qcat_data_csv.py config/tech.py -v -t ADD HERE THE TOKEN
 """
 
 config = {
-    'api_token': '',  # Your API token here
     'api_filter_params': '?type=technologies',
     'output_file': 'tech.csv',
     'qcat_attributes': [
@@ -32,7 +31,7 @@ config = {
                 'value',
                 'value',
             ],
-            'name': '1_1_name',
+            'name': '1_1_tech_name',
         },
         # 1.5 Reference to Questionnaire(s) on SLM approach 
         {
@@ -45,7 +44,7 @@ config = {
                 'value',
                 'code',
             ],
-            'name': '1_5_ref_to_approach_code',
+            'name': '1_5_tech_ref_to_approach_code',
         },
         {
             'path': [
@@ -57,7 +56,7 @@ config = {
                 'value',
                 'name',
             ],
-            'name': '1_5_ref_to_approach_name',
+            'name': '1_5_tech_ref_to_approach_name',
         },
         {
             'path': [
@@ -69,7 +68,7 @@ config = {
                 'value',
                 'url',
             ],
-            'name': '1_5_ref_to_approach_url',
+            'name': '1_5_tech_ref_to_approach_url',
         },
         # Description of the SLM Technology
         # 2.1 Short description of the Technology
@@ -121,7 +120,7 @@ config = {
                 "value",
                 "value"
             ],
-            'name': '2_5_country'
+            'name': '2_5_tech_country'
         },
         {
             'path': [
@@ -137,7 +136,7 @@ config = {
                 "value",
                 "value"
             ],
-            'name': '2_5_provinve' 
+            'name': '2_5_tech_provinve' 
         },
         {
             'path': [
@@ -153,7 +152,7 @@ config = {
                 "value",
                 "value"
             ],
-            'name': '2_5_further_location'
+            'name': '2_5_tech_further_location'
         },
         {
             'path': [
@@ -183,7 +182,7 @@ config = {
                 "location_map",
                 "value"
             ],
-            'name': '2_5_location_map' 
+            'name': '2_5_tech_location_map' 
         },
         {
             'path': [
@@ -198,7 +197,7 @@ config = {
                 "location_comments",
                 "value"
             ],
-            'name': '2_5_location_comments' 
+            'name': '2_5_tech_location_comments' 
         },
         # 2.6 Date of implementation
         {
@@ -315,7 +314,7 @@ config = {
                 'value',
                 'values',
             ],
-            'name': '3_2_landuse_type'
+            'name': '3_2_tech_landuse_type'
         },
         # 3.3 Further information about land use
         {
@@ -445,7 +444,7 @@ config = {
                     'value',
                     'value',
             ],
-            'name': '3_4__slm_group_other'
+            'name': '3_4_tech_slm_group_other'
         },
         # 3.5 Spread of the Technology
         {
@@ -478,7 +477,7 @@ config = {
                     'value',
                     'values',
             ],
-            'name': '3_5__slm_group_other'
+            'name': '3_5_tech_slm_group_other'
         },
         {
             'path': [
@@ -659,7 +658,6 @@ config = {
     				'children',
     				'tech_cost_calculation_base',
     				'value',
-    				'value',
     		],
     		'name': '4_3_tech_cost_calculation_base'
     	},
@@ -674,7 +672,6 @@ config = {
     				'tech_qg_163',
     				'children',
     				'tech_perarea_size',
-    				'value',
     				'value',
     		],
     		'name': '4_3_tech_perarea_size'
@@ -691,7 +688,6 @@ config = {
     				'children',
     				'tech_area_unit_conversion',
     				'value',
-    				'value',
     		],
     		'name': '4_3_tech_area_unit_conversion'
     	},
@@ -707,7 +703,6 @@ config = {
     				'children',
     				'tech_input_perunit_unit',
     				'value',
-    				'value',
     		],
     		'name': '4_3_tech_input_perunit_unit'
     	},
@@ -722,7 +717,6 @@ config = {
     				'tech_qg_162',
     				'children',
     				'tech_input_perunit_volume',
-    				'value',
     				'value',
     		],
     		'name': '4_3_tech_input_perunit_volume'
@@ -2277,6 +2271,22 @@ config = {
     				'children',
     				'tech__5__1',
     				'children',
+    				'tech_qg_54',
+    				'children',
+    				'tech_rainfall_meteostation',
+    				'value',
+    				'value',
+    		],
+    		'name': '5_1_tech_rainfall_meteostation'
+    	},
+        {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__1',
+    				'children',
     				'tech_qg_55',
     				'children',
     				'tech_agroclimatic_zone',
@@ -2301,6 +2311,340 @@ config = {
     		],
     		'name': '5_1_tech_agroclimatic_zone_specifications'
     	},
+        # 5.2 Topography
+        {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__2',
+    				'children',
+    				'tech_qg_56',
+    				'children',
+    				'tech_slopes',
+    				'value',
+    				'values',
+    		],
+    		'name': '5_2_tech_slopes'
+    	},
+       {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__2',
+    				'children',
+    				'tech_qg_56',
+    				'children',
+    				'tech_landforms',
+    				'value',
+    				'values',
+    		],
+    		'name': '5_2_tech_landforms'
+    	},
+        {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__2',
+    				'children',
+    				'tech_qg_56',
+    				'children',
+    				'tech_altitudinalzone',
+    				'value',
+    				'values',
+    		],
+    		'name': '5_2_tech_landforms'
+    	},
+        {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__2',
+    				'children',
+    				'tech_qg_57',
+    				'children',
+    				'tech_convex_concave',
+    				'value',
+    				'values',
+    		],
+    		'name': '5_2_tech_convex_concave'
+    	},
+        {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__2',
+    				'children',
+    				'tech_qg_57',
+    				'children',
+    				'tech_topography_comments',
+    				'value',
+    				'value',
+    		],
+    		'name': '5_2_tech_topography_comments'
+    	},
+        # 5.3 Soils
+        {
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__3',
+    				'children',
+    				'tech_qg_58',
+    				'children',
+    				'tech_soil_depth',
+    				'value',
+    				'values',
+    		],
+    		'name': '5_3_tech_soil_depth'
+    	},
+        {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__3',
+    				'children',
+    				'tech_qg_58',
+    				'children',
+    				'tech_soil_texture_topsoil',
+    				'value',
+    				'values',
+    		],
+    		'name': '5_3_tech_soil_texture_topsoil'
+    	},
+        {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__3',
+    				'children',
+    				'tech_qg_58',
+    				'children',
+    				'tech_soil_texture_20cm',
+    				'value',
+    				'values',
+    		],
+    		'name': '5_3_tech_soil_texture_20cm'
+    	},
+        {   
+            'path': [
+    				'section_specifications',
+    				'children',
+    				'tech__5',
+    				'children',
+    				'tech__5__3',
+    				'children',
+    				'tech_qg_58',
+    				'children',
+    				'tech_topsoil_organic',
+    				'value',
+    				'values',
+    		],
+    		'name': '5_3_tech_topsoil_organic'
+    	},
+    	{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__3',
+					'children',
+					'tech_qg_59',
+					'children',
+					'tech_soil_comments',
+					'value',
+					'value',
+			],
+			'name': '5_3_tech_soil_comments'
+		},
+		# 5.4 Water availability and quality
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__4',
+					'children',
+					'tech_qg_60',
+					'children',
+					'tech_groundwater',
+					'value',
+					'values',
+			],
+			'name': '5_4_tech_groundwater'
+		},
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__4',
+					'children',
+					'tech_qg_60',
+					'children',
+					'tech_surfacewater',
+					'value',
+					'values',
+			],
+			'name': '5_4_tech_surfacewater'
+		},
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__4',
+					'children',
+					'tech_qg_60',
+					'children',
+					'tech_waterquality',
+					'value',
+					'values',
+			],
+			'name': '5_4_tech_waterquality'
+		},
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__4',
+					'children',
+					'tech_qg_61',
+					'children',
+					'tech_salinization',
+					'value',
+			],
+			'name': '5_4_tech_salinization'
+		},
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__4',
+					'children',
+					'tech_qg_62',
+					'children',
+					'tech_salinization_specification',
+					'value',
+			],
+			'name': '5_4_tech_salinization_specification'
+		},
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__4',
+					'children',
+					'tech_qg_63',
+					'children',
+					'tech_flooding',
+					'value',
+			],
+			'name': '5_4_tech_flooding'
+		},
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__4',
+					'children',
+					'tech_qg_64',
+					'children',
+					'tech_flooding_regularity',
+					'value',
+			],
+			'name': '5_4_tech_flooding_regularity'
+		},
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__4',
+					'children',
+					'tech_qg_65',
+					'children',
+					'tech_water_comments',
+					'value',
+			],
+			'name': '5_4_tech_water_comments'
+		},
+		# 5.5 Biodiversity
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__5',
+					'children',
+					'tech_qg_66',
+					'children',
+					'tech_speciesdiversity',
+					'value',
+					'values',
+			],
+			'name': '5_5_tech_speciesdiversity'
+		},
+		{   
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__5',
+					'children',
+					'tech_qg_66',
+					'children',
+					'tech_habitatdiversity',
+					'value',
+					'values',
+			],
+			'name': '5_5_tech_habitatdiversity'
+		},
+		{
+			'path': [
+					'section_specifications',
+					'children',
+					'tech__5',
+					'children',
+					'tech__5__5',
+					'children',
+					'tech_qg_67',
+					'children',
+					'tech_biodiversity_comments',
+					'value',
+			],
+			'name': '5_5_tech_biodiversity_comments'
+		},
         # 5.6 Characteristics of the land user applying technology
     	{
             'path': [
@@ -3331,6 +3675,1618 @@ config = {
             ],
             'name': '6_1_sei_other'
         },
+        # 6.2 Off-site impacts the Technology has shown
+		# Water availability
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_146',
+                'children',
+                'tech_impacts_wateravailability',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_wateravailability'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_146',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_wa'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_146',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_wa'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_146',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_wa'
+        },
+		# Reliable and stable stream flows
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_148',
+                'children',
+                'tech_impacts_reliableflows',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_reliableflows'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_148',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_rf'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_148',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_rf'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_148',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_rf'
+        },
+		# Downstream flooding 
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_147',
+                'children',
+                'tech_impacts_downstreamflooding',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_downstreamflooding'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_147',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_dsf'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_147',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_dsf'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_147',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_dsf'
+        },
+		# Downstream siltation 
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_149',
+                'children',
+                'tech_impacts_downstreamsiltation',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_downstreamsiltation'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_149',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_dss'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_149',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_dss'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_149',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_dss'
+        },
+		# Groundwater / river pollution 
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_150',
+                'children',
+                'tech_impacts_groundwaterpollution',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_groundwaterpollution'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_150',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_gwp'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_150',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_gwp'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_150',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_dss'
+        },
+
+		# Buffering / filter in capacity 
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_151',
+                'children',
+                'tech_impacts_bufferingcapacity',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_bufferingcapacity'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_151',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_gc'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_151',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_gc'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_151',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_gc'
+        },
+		# Wind transported sediments
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_152',
+                'children',
+                'tech_impacts_windtransportedsediments',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_windtransportedsediments'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_152',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_wts'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_152',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_wts'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_152',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_wts'
+        },
+		# Damage on neighbour's fields
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_153',
+                'children',
+                'tech_impacts_damageneighbourfield',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_damageneighbourfield'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_153',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_dnf'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_153',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_dnf'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_153',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_dnf'
+        },
+		# Damage on public / private infrastructure 
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_154',
+                'children',
+                'tech_impacts_damageinfrastructure',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_damageinfrastructure'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_154',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_dpi'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_154',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_dpi'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_154',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_dpi'
+        },
+
+	# Impact of greenhouse gases
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_155',
+                'children',
+                'tech_impacts_impactgreenhousegases',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_impactgreenhousegases'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_155',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before_ighg'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_155',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after_ighg'
+        },
+       {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_155',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify_ighg'
+        },
+
+	# Other off-site impacts
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_190',
+                'children',
+                'tech_impacts_other_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_other_specify'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_190',
+                'children',
+                'tech_impacts_other_labelleft',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_other_labelleft'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_190',
+                'children',
+                'tech_impacts_other_measure',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_other_measure'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_190',
+                'children',
+                'tech_impacts_other_labelright',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_other_labelright'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_190',
+                'children',
+                'tech_impacts_quant_before',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_before'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_190',
+                'children',
+                'tech_impacts_quant_after',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_quant_after'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_190',
+                'children',
+                'tech_impacts_specify',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_specify'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__2',
+                'children',
+                'tech_qg_229',
+                'children',
+                'tech_impacts_comments',
+                'value',
+                'value',
+            ],
+            'name': '6_2_tech_impacts_comments'
+        },
+        # 6.3 Exposure and sensitivity of the Technology to gradual climate change and climate-related extremes/ disasters (as perceived by land users)
+		# Annual temperature
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_168',
+                'children',
+                'tech_exposure_incrdecr',
+                'value',
+            ],
+            'name': '6_3_tech_annualtemperature_exposure_incrdecr'
+        },
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_168',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_annualtemperature_exposure_sensitivity'
+        },
+        # Seasonal temperature
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_169',
+                'children',
+                'tech_exposure_season',
+                'value',
+            ],
+            'name': '6_3_tech_seasonaltemperature_exposure_season'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_169',
+                'children',
+                'tech_exposure_incrdecr',
+                'value',
+            ],
+            'name': '6_3_tech_seasonaltemperature_exposure_incrdecr'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_169',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_seasonaltemperature_exposure_sensitivity'
+        },
+		# Annual rainfall
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_170',
+                'children',
+                'tech_exposure_incrdecr',
+                'value',
+            ],
+            'name': '6_3_tech_annualrainfall_exposure_incrdecr'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_170',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_annualrainfall_exposure_sensitivity'
+        },
+        # Sesonal rainfall
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_171',
+                'children',
+                'tech_exposure_season',
+                'value',
+            ],
+            'name': '6_3_tech_seasonalrainfall_exposure_season'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_171',
+                'children',
+                'tech_exposure_incrdecr',
+                'value',
+            ],
+            'name': '6_3_tech_seasonalrainfall_exposure_incrdecr'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_171',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_seasonalrainfall_exposure_sensitivity'
+        },
+        # Other gradual climate change
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_172',
+                'children',
+                'tech_exposure_other_specify',
+                'value',
+            ],
+            'name': '6_3_tech_othergradclimatechange_otherspecifiy'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_172',
+                'children',
+                'tech_exposure_incrdecr',
+                'value',
+            ],
+            'name': '6_3_tech_othergradclimatechange_exposure_incrdecr'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech__8__3__gradual',
+                'children',
+                'tech_qg_172',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_othergradclimatechange_exposure_sensitivity'
+        },
+        # Climate-related extremes (disasters)
+		# Meteorological disasters
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_177',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_tropicalstrom_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_178',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_extratropicalcyclone_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_179',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_localrainstorm_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_193',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_localthunderstrom_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_194',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_localhailstorm_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_195',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_localsnowstorm_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_196',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_localsandduststorm_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_197',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_localwindstorm_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__meteorological',
+                'children',
+                'tech_qg_198',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_tornado_exposure_sensitivity'
+        },
+        # Climatological disasters
+		{
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__climatological',
+                'children',
+                'tech_qg_199',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_heatwave_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__climatological',
+                'children',
+                'tech_qg_200',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_coldwave_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__climatological',
+                'children',
+                'tech_qg_201',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_extremewinter_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__climatological',
+                'children',
+                'tech_qg_202',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_drought_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__climatological',
+                'children',
+                'tech_qg_203',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_forestfire_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__climatological',
+                'children',
+                'tech_qg_204',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_landfire_exposure_sensitivity'
+        },
+		# Hydrological disasters
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__hydrological',
+                'children',
+                'tech_qg_205',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_generalriverflood_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__hydrological',
+                'children',
+                'tech_qg_206',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_flashflood_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__hydrological',
+                'children',
+                'tech_qg_207',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_stromsurgecostalflood_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__hydrological',
+                'children',
+                'tech_qg_208',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_landslide_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__hydrological',
+                'children',
+                'tech_qg_209',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_avalanche_exposure_sensitivity'
+        },
+		# Biological
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__biological',
+                'children',
+                'tech_qg_210',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_biologicaldesaster_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__biological',
+                'children',
+                'tech_qg_211',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_insectinfestation_exposure_sensitivity'
+        },
+        # Other climate
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__otherclimate',
+                'children',
+                'tech_qg_212',
+                'children',
+                'tech_exposure_other_specify',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_other_specify'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__climaterelated',
+                'children',
+                'tech__8__3__otherclimate',
+                'children',
+                'tech_qg_212',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_climarelated_exposure_sensitivity'
+        },
+        # Other climate-related consequences
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech_qg_213',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_other_extendedgrowingperiod_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech_qg_214',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_other_reducedgrowingperiod_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech_qg_215',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_other_sealevelrise_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech_qg_216',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_other_other_specifyy'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech__8__3__other',
+                'children',
+                'tech_qg_216',
+                'children',
+                'tech_exposure_sensitivity',
+                'value',
+            ],
+            'name': '6_3_tech_other_other_exposure_sensitivity'
+        },
+        {
+            'path': [
+                'section_specifications',
+                'children',
+                'tech__6',
+                'children',
+                'tech__6__3',
+                'children',
+                'tech__8__3__comments',
+                'children',
+                'tech_qg_180',
+                'children',
+                'tech_tolerance_comments',
+                'value',
+            ],
+            'name': '6_3_tech_other_tolerance_comments'
+        },
+
         # 6.4 Cost-benefit analysis         
         {
             'path': [
